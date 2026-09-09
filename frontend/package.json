@@ -6,7 +6,8 @@
     "build": "dotenv -e .env.production -- next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy:hostinger": "powershell -NoProfile -ExecutionPolicy Bypass -File ../deploy-hostinger.ps1"
   },
   "dependencies": {
     "next": "16.2.6",
