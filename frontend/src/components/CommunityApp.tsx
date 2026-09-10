@@ -477,7 +477,7 @@ export default function CommunityApp() {
           {/* MAIN GRID */}
           <main className="mx-auto grid max-w-[1400px] gap-5 px-4 pt-5 lg:grid-cols-[290px_minmax(0,1fr)] xl:grid-cols-[290px_minmax(0,1fr)_340px]">
             {/* LEFT */}
-            <aside className="space-y-5">
+            <aside className="order-1 space-y-5 lg:order-none">
               {/* SEQUÊNCIA */}
               <section className="card-ring overflow-hidden rounded-3xl border border-white bg-white">
                 <div className="bg-gradient-to-r from-orange-500 via-rose-500 to-pink-600 px-5 py-3 text-white">
@@ -620,7 +620,7 @@ export default function CommunityApp() {
             </aside>
 
             {/* CENTER — FEED */}
-            <section className="min-w-0 space-y-5">
+            <section className="order-3 min-w-0 space-y-5 lg:order-none">
               {/* COMPOSER */}
               <div className="card-ring overflow-hidden rounded-3xl border border-white bg-white">
                 <div className="flex items-center justify-between bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600 px-5 py-3 text-white">
@@ -774,7 +774,7 @@ export default function CommunityApp() {
             </section>
 
             {/* RIGHT */}
-            <aside className="space-y-5 lg:col-span-2 xl:col-span-1">
+            <aside className="order-2 space-y-5 lg:order-none lg:col-span-2 xl:col-span-1">
               {/* PRATIQUEI HOJE */}
               <div className="relative">
                 {burst && (
