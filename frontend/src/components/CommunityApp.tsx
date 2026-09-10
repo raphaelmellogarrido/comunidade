@@ -349,7 +349,7 @@ export default function CommunityApp() {
   return (
     <div className="bg-mesh min-h-screen pb-16">
       {/* floating deco */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="animate-float-slow absolute -left-10 top-24 text-5xl opacity-20">🇧🇷</div>
         <div className="animate-float-slow absolute right-6 top-40 text-4xl opacity-20" style={{ animationDelay: "1.2s" }}>🇺🇸</div>
         <div className="animate-float-slow absolute bottom-20 left-[8%] text-4xl opacity-20" style={{ animationDelay: "2s" }}>🇪🇸</div>
