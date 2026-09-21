@@ -1,0 +1,48 @@
+name: Deploy Hostinger
+
+# Builda o frontend e publica o resultado na branch "hostinger" (a mesma
+# coisa que ./deploy-hostinger.ps1 faz local). Roda automaticamente a cada
+# push no main que mexa em frontend/, e fica com histórico de execuções em
+# Actions — dá pra reabrir um run antigo, ver o log, ou clicar em "Re-run
+# all jobs" pra reimplantar de novo se algo tiver dado errado depois.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+      - "deploy-hostinger.ps1"
+      - ".github/workflows/deploy-hostinger.yml"
+
+permissions:
+  contents: write
+
+# Evita dois deploys rodando ao mesmo tempo e pisando um no outro na branch
+# hostinger; não cancela um deploy em andamento por segurança.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar identidade do git para o commit na branch hostinger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build e publicar (deploy-hostinger.ps1)
+        shell: pwsh
+        run: ./deploy-hostinger.ps1
