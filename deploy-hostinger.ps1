@@ -61,12 +61,12 @@ try {
     }
 
     $envProdPath = Join-Path $frontendDir ".env.production"
-    if (-not (Test-Path $envProdPath)) {
-        Fail "frontend/.env.production nao existe. Deve conter NEXT_PUBLIC_API_URL=https://api.codigoecafe.com"
+        if (-not (Test-Path $envProdPath)) {
+        Fail "frontend/.env.production nao existe. Deve conter NEXT_PUBLIC_API_URL=https://comunidade-qc2b.onrender.com"
     }
     $envContent = Get-Content $envProdPath -Raw
-    if ($envContent -notmatch "NEXT_PUBLIC_API_URL=https://api\.codigoecafe\.com") {
-        Fail "frontend/.env.production nao contem NEXT_PUBLIC_API_URL=https://api.codigoecafe.com. Corrija antes de publicar."
+    if ($envContent -notmatch "NEXT_PUBLIC_API_URL=https://comunidade-qc2b\.onrender\.com") {
+        Fail "frontend/.env.production nao contem NEXT_PUBLIC_API_URL=https://comunidade-qc2b.onrender.com. Corrija antes de publicar."
     }
 
     Write-Step "Rodando npm run build"
