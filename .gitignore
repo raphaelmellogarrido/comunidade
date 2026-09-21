@@ -1,12 +1,3 @@
-node_modules/
-.next/
-out/
-dist/
-build/
+﻿node_modules/
 .env
 .env.*
-
-# Exceção: NEXT_PUBLIC_API_URL não é segredo (fica visível no bundle do
-# navegador de qualquer forma) e a Hostinger precisa deste arquivo versionado
-# para buildar o frontend direto do GitHub. Nunca coloque segredos aqui.
-!frontend/.env.production
